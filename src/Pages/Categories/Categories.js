@@ -1,6 +1,8 @@
 import React from 'react';
-import {FlatList} from 'react-native';
-import Config from 'react-native-config';
+import {FlatList, View} from 'react-native';
+import Styles from './Categories.style';
+
+import {CATEGORY_URL} from '@env';
 
 import CategoriesCard from '../../Components/Cards/CategoriesCard';
 import Loading from '../../Components/Loading';
@@ -8,7 +10,7 @@ import Error from '../../Components/Error';
 import useFetch from '../../Hooks/useFetch';
 
 const Categories = () => {
-  const {data, error, loading} = useFetch(Config.CATEGORY_URL);
+  const {data, error, loading} = useFetch(CATEGORY_URL);
 
   const renderCategories = ({item}) => <CategoriesCard category={item} />;
 
@@ -21,11 +23,13 @@ const Categories = () => {
   }
 
   return (
-    <FlatList
-      data={data}
-      renderItem={renderCategories}
-      keyExtractor={item => item.idCategory}
-    />
+    <View style={Styles.container}>
+      <FlatList
+        data={data.categories}
+        renderItem={renderCategories}
+        keyExtractor={item => item.idCategory}
+      />
+    </View>
   );
 };
 

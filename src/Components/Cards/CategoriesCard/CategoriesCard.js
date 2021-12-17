@@ -5,11 +5,10 @@ import Styles from './CategoriesCard.style';
 const CategoriesCard = ({category}) => {
   return (
     <View style={Styles.container}>
-      <Image
-        style={Styles.image}
-        source={{uri: category.categories.strCategoryThumb}}
-      />
-      <Text style={Styles.text}>{category.categories.strCategory}</Text>
+      <View style={Styles.imageContainer}>
+        <Image style={Styles.image} source={{uri: category.strCategoryThumb}} />
+      </View>
+      <Text style={Styles.text}>{category.strCategory}</Text>
     </View>
   );
 };
