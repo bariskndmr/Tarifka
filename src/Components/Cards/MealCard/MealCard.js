@@ -1,12 +1,21 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {
+  Text,
+  TouchableWithoutFeedback,
+  ImageBackground,
+  View,
+} from 'react-native';
 import Styles from './MealCard.style';
 
 const MealCard = ({meal}) => {
   return (
-    <View style={Styles.container}>
-      <Text style={Styles.title}>{meal.strMeal}</Text>
-    </View>
+    <TouchableWithoutFeedback>
+      <View style={Styles.container}>
+        <ImageBackground style={Styles.image} source={{uri: meal.strMealThumb}}>
+          <Text style={Styles.title}>{meal.strMeal}</Text>
+        </ImageBackground>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 

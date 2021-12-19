@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList} from 'react-native';
+import {FlatList, SafeAreaView} from 'react-native';
 import Styles from './Meals.style';
 
 import {MEALS_URL} from '@env';
@@ -26,11 +26,9 @@ const Meals = ({route}) => {
   }
 
   return (
-    <FlatList
-      style={Styles.container}
-      data={data.meals}
-      renderItem={renderMeals}
-    />
+    <SafeAreaView style={Styles.container}>
+      <FlatList data={data.meals} renderItem={renderMeals} />
+    </SafeAreaView>
   );
 };
 
