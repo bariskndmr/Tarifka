@@ -10,11 +10,11 @@ import useFetch from '../../Hooks/useFetch';
 import MealCard from '../../Components/Cards/MealCard';
 
 const Meals = ({route}) => {
-  const {strCategory} = route.params;
+  const strCategory = route.params;
   const {loading, data, error} = useFetch(`${MEALS_URL}${strCategory}`);
 
   const renderMeals = ({item}) => {
-    <MealCard meals={item} />;
+    return <MealCard meal={item} />;
   };
 
   if (error) {

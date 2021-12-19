@@ -13,7 +13,7 @@ const Categories = ({navigation}) => {
   const {data, error, loading} = useFetch(CATEGORY_URL);
 
   const handleSelectMeals = strCategory => {
-    navigation.navigate('MealsPage', {strCategory});
+    navigation.navigate('MealsPage', [strCategory]);
   };
 
   const renderCategories = ({item}) => (
@@ -33,11 +33,7 @@ const Categories = ({navigation}) => {
 
   return (
     <View style={Styles.container}>
-      <FlatList
-        data={data.categories}
-        renderItem={renderCategories}
-        keyExtractor={item => item.idCategory}
-      />
+      <FlatList data={data.categories} renderItem={renderCategories} />
     </View>
   );
 };
