@@ -9,10 +9,19 @@ import Loading from '../../Components/Loading';
 import Error from '../../Components/Error';
 import useFetch from '../../Hooks/useFetch';
 
-const Categories = () => {
+const Categories = ({navigation}) => {
   const {data, error, loading} = useFetch(CATEGORY_URL);
 
-  const renderCategories = ({item}) => <CategoriesCard category={item} />;
+  const handleSelectMeals = strCategory => {
+    navigation.navigate('MealsPage', {strCategory});
+  };
+
+  const renderCategories = ({item}) => (
+    <CategoriesCard
+      category={item}
+      onSelect={() => handleSelectMeals(item.strCategory)}
+    />
+  );
 
   if (loading) {
     return <Loading />;
