@@ -6,7 +6,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     margin: 10,
-    borderRadius: 10,
   },
   image: {
     height: Device.height / 5,

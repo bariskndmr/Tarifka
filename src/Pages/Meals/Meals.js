@@ -9,12 +9,18 @@ import Error from '../../Components/Error';
 import useFetch from '../../Hooks/useFetch';
 import MealCard from '../../Components/Cards/MealCard';
 
-const Meals = ({route}) => {
+const Meals = ({route, navigation}) => {
   const strCategory = route.params;
   const {loading, data, error} = useFetch(`${MEALS_URL}${strCategory}`);
 
+  const handleSelectDetails = idMeal => {
+    navigation.navigate('DetailPage', {idMeal});
+  };
+
   const renderMeals = ({item}) => {
-    return <MealCard meal={item} />;
+    return (
+      <MealCard meal={item} onSelect={() => handleSelectDetails(item.idMeal)} />
+    );
   };
 
   if (error) {

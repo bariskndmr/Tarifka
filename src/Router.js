@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Categories from './Pages/Categories';
 import Meals from './Pages/Meals';
+import Detail from './Pages/Detail';
 
 const Stack = createNativeStackNavigator();
 
@@ -17,6 +18,10 @@ const Router = () => {
           options={{
             headerStyle: {
               backgroundColor: '#ffa500',
+            },
+            headerTintColor: 'white',
+            headerTitleStyle: {
+              fontWeight: 'bold',
             },
           }}
         />
@@ -33,6 +38,7 @@ const Router = () => {
             },
           }}
         />
+        <Stack.Screen name="DetailPage" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
