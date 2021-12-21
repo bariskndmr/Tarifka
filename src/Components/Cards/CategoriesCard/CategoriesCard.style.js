@@ -23,5 +23,6 @@ export default StyleSheet.create({
   text: {
     fontWeight: '500',
     fontSize: 18,
+    color:'black'
   },
 });
