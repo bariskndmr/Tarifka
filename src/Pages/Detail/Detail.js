@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList} from 'react-native';
 import Styles from './Detail.style';
 
-import {DETAIL_URL} from '@env';
+import {DETAILS_API} from '@env';
 
 import DetailCard from '../../Components/Cards/DetailCard';
 import Error from '../../Components/Error';
@@ -11,7 +11,7 @@ import useFetch from '../../Hooks/useFetch';
 
 const Detail = ({route}) => {
   const {idMeal} = route.params;
-  const {loading, error, data} = useFetch(`${DETAIL_URL}${idMeal}`);
+  const {loading, error, data} = useFetch(`${DETAILS_API}${idMeal}`);
 
   if (error) {
     return <Error />;
