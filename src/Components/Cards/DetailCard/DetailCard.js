@@ -5,7 +5,7 @@ import Styles from './DetailCard.style';
 const DetailCard = ({detail}) => {
   return (
     <View style={Styles.container}>
-      <Image style={Styles.image} source={null} />
+      <Image style={Styles.image} source={{uri:detail.strMealThumb}} />
       <Text style={Styles.title}>{detail.strMeal}</Text>
       <Text style={Styles.description}>{detail.strInstructions}</Text>
       <TouchableOpacity style={Styles.button}>
