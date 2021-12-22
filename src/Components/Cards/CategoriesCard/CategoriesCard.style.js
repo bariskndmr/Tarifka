@@ -7,7 +7,7 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: '#8bc34a',
+    borderColor: '#bcaaa4',
     borderWidth: 2,
     borderBottomLeftRadius: 50,
     borderTopLeftRadius: 50,
