@@ -13,7 +13,6 @@ const Detail = ({route}) => {
   const {idMeal} = route.params;
   const {loading, error, data} = useFetch(`${DETAIL_URL}${idMeal}`);
 
-  console.log(data.meals);
   const renderDetailCard = ({item}) => {
     return <DetailCard item={item} />;
   };

@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from 'react-native';
 
-const Device = Dimensions.get('window');
+const {height} = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     margin: 10,
   },
   image: {
-    height: Device.height / 5,
+    height: height / 5,
     justifyContent: 'flex-end',
   },
   title: {

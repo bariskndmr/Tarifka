@@ -1,18 +1,28 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
+  Image,
+  Linking,
+} from 'react-native';
 import Styles from './DetailCard.style';
 
 const DetailCard = ({item}) => {
-  const {strMeal, strMealThumb, strInstructions} = item;
+  const {strMeal, strMealThumb, strInstructions, strArea} = item;
   return (
-    <View style={Styles.container}>
+    <SafeAreaView style={Styles.container}>
       <Image style={Styles.image} source={{uri: strMealThumb}} />
-      <Text style={Styles.title}>{strMeal}</Text>
+      <View style={Styles.titleContainer}>
+        <Text style={[Styles.title, Styles.titleTextProps]}>{strMeal}</Text>
+        <Text style={[Styles.country, Styles.titleTextProps]}>{strArea}</Text>
+      </View>
       <Text style={Styles.description}>{strInstructions}</Text>
-      <TouchableOpacity style={Styles.button}>
+      <TouchableOpacity style={Styles.button} onPress={null}>
         <Text style={Styles.buttonText}>Watch On Youtube</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 };
 
