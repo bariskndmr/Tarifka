@@ -1,6 +1,6 @@
 import React from 'react';
 import {FlatList} from 'react-native';
-import Styles from './Detail.style';
+/* import Styles from './Detail.style'; */
 
 import {DETAIL_URL} from '@env';
 
@@ -13,22 +13,22 @@ const Detail = ({route}) => {
   const {idMeal} = route.params;
   const {loading, error, data} = useFetch(`${DETAIL_URL}${idMeal}`);
 
+  console.log(data.meals);
+  const renderDetailCard = ({item}) => {
+    return <DetailCard item={item} />;
+  };
+
   if (error) {
     return <Error />;
   }
   if (loading) {
     return <Loading />;
   }
-
-  const renderDetailCard = ({item}) => {
-    return <DetailCard detail={item} />;
-  };
-
   return (
     <FlatList
-      style={Styles.container}
       data={data.meals}
       renderItem={renderDetailCard}
+      keyExtractor={item => item.idMeal}
     />
   );
 };

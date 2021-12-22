@@ -33,7 +33,11 @@ const Meals = ({route, navigation}) => {
 
   return (
     <SafeAreaView style={Styles.container}>
-      <FlatList data={data.meals} renderItem={renderMeals} />
+      <FlatList
+        data={data.meals}
+        renderItem={renderMeals}
+        keyExtractor={data => data.idMeal}
+      />
     </SafeAreaView>
   );
 };
