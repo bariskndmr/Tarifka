@@ -17,7 +17,7 @@ const Router = () => {
           component={Categories}
           options={{
             headerStyle: {
-              backgroundColor: '#ffa500',
+              backgroundColor: '#33691e',
             },
             headerTintColor: 'white',
             headerTitleStyle: {
